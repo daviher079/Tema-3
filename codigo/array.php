@@ -106,15 +106,47 @@
                     "DAM" => array ("PR"=>"Programación",
                         "BD" => "Bases de datos",
                         "PMDM" => "Programación multimedia y de dispositivos móviles"),
+                    "ASIR" => array ("ASO"=>"Sistemas Operativos",
+                        "BD" => "Bases de datos",
+                        "PLAR" => "Redes"),    
                 );
 
                 foreach ($ciclos as $key => $value) {
                     
                     foreach ($ciclos[$key] as $clave => $valor2) {
-                        echo $valor2;
+                        echo $valor2,"<br/>";
                     }
                 }
+            echo "<h1>Funciones para recordar</h1>";
+                print_r (current($ciclos));
+                echo "<br>";
+                print_r (next($ciclos));
+                echo "<br>";
+                print_r (current($ciclos));
+                echo "<br>";
+                echo "<br>";
 
+            while($ciclo = each($ciclos))
+            {
+                echo "<pre>";
+                echo "El ciclo es ", $ciclo['key'], " Y la asignatura es ";
+                print_r($ciclo['value']);
+                echo "</pre>";
+            }    
+
+            echo "<br>";
+                print_r (current($ciclos));
+
+                echo "<br>";
+                reset($ciclos);    
+
+                while($ciclo = each($ciclos))
+                {
+                    echo "<pre>";
+                    echo "El ciclo es ", $ciclo['key'], " Y la asignatura es ";
+                    print_r($ciclo['value']);
+                    echo "</pre>";
+                }      
         ?>
     </main>
 </body>
