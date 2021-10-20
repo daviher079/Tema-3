@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
+    <link rel="stylesheet" href="../web-root/css/style.css"/>
+    <title>Ejercicios 1 y 2</title>
 </head>
 <body>
-    
-    <main>
-        <?
+    <header>
+        <img class="logo" src="../../web-rootPrincipal/imgPrincipal/LogotipoDavid.jpg"/>
+        <h1>Ejercicios 1 y 2</h1>
+    </header>
+    <main class="ejercicios1y2">
+    <?
 
         //Escribe un programa que dado un array ordénalo y devuelve otro array sin que haya elementos repetidos
 
@@ -72,7 +77,11 @@
         echo "<pre>";
             print_r($ejercicio2);
         echo "</pre>"; 
-        ?>
+?>
+
     </main>
+    <footer>
+        <p>Footer de David</p>
+    </footer>
 </body>
 </html>
