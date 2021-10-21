@@ -14,7 +14,7 @@
         <h1>Tarea 06</h1>
     </header>
     <main>
-    <?
+    <?php
 
         $arrayDavid=array(
             "Zamora CF" => array(
@@ -117,9 +117,16 @@
         foreach ($arrayDavid as $key => $value) {
             echo "<tr>";
                 echo"<td>",$key,"</td>" ;
-                foreach($arrayDavid[$key] as $key2 => $value2){
+                foreach($value as $key2 => $value2){
                     
-                    echo "<td>",$key2,"</td>";
+                    echo "<td>";
+                        foreach($value2 as $key3 => $value3)
+                        {
+                            
+                            echo $value3;
+                            
+                        }
+                    echo "</td>";
                 }
             echo "</tr>";    
         }
