@@ -77,7 +77,6 @@
                     "Penaltis" => 0 
                 )
             ),
-
             "Numancia" => array(
                 "Zamora" => array(
                     "Resultado" => "2 - 0",
@@ -98,75 +97,70 @@
                     "Penaltis" => 0  
                 )
             ),
-
         );
+
+        $tabla=array();
 
         echo "<table>";
         echo "<thead>";
         //Hago la cabecera
         echo "<td>Equipos</td>";
+
         foreach ($arrayDavid as $keyLocales => $valueLocales) {
             
                 echo "<td>";
                     echo $keyLocales;
+                   array_push($tabla, $keyLocales);
                 echo"</td>";
         }
+        
         echo "</thead>";
+
         //Pinto los resultados y para eso recorro el array grande
+        
 
         foreach ($arrayDavid as $key => $value) {
+            
             echo "<tr>";
-                echo"<td>",$key,"</td>" ;
-                foreach($value as $key2 => $value2){
-                    
-                    echo "<td>";
-                        foreach($value2 as $key3 => $value3)
-                        {
-                            
-                            echo $value3;
-                            
-                        }
-                    echo "</td>";
+                
+            echo"<td>",$key,"</td>" ;
+            $i=0; 
+            foreach($value as $key2 => $value2){
+                
+                if($tabla[$i] == $key)
+                {
+                    echo"<td></td>";
                 }
-            echo "</tr>";    
+                
+                    echo "<td>";
+
+                    foreach($value2 as $key3 => $value3)
+                    {    
+                        
+                        echo $value3;
+                    }
+                    
+                    echo "</td>";
+                
+                $i++; 
+                    
+            }
+
+           
+
+            echo "</tr>";   
+            
         }
-
-
-
 
         echo"</table>";
        
        
+       
         
 
 
 
-        /*$equipos=array( "Zamora CF", "UDS Salamanca", "Real Valladolid", "Numancia");
-
-        $tabla=array();
-        echo "<table style='border: solid; padding: 20px;'>";
-        
-        for ($i=0; $i <count($equipos) ; $i++) { 
-            $tabla[$i]=array();
-            echo "<tr style='border: solid;'>";
-            for ($j=0; $j < count($equipos) ; $j++) 
-            {
-                if($i==0 &$j==0)
-                {
-                    echo "<td style='padding: 20px;'>",$tabla[$i][$j]="Equipos", "</td>";
-                } 
-                elseif($i==0)
-                {
-                    echo "<td style='padding: 20px;'>",$tabla[$i][$j]=$equipos[$j], "</td>";
-                }elseif($j==0)
-                {
-                    echo "<td style='padding: 20px;'>",$tabla[$i][$j]=$equipos[$i], "</td>";
-                    
-                }
-            }
-            echo "</tr>";
-        }
-        echo "</table>";*/
+      
     ?>
 
     </main>
