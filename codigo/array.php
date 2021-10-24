@@ -9,7 +9,7 @@
 <body>
     
     <main>
-        <?
+        <?php
             $arrayvacio=array();
             var_dump($arrayvacio);
             echo"<br/>";
