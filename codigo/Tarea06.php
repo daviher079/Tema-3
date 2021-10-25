@@ -168,6 +168,9 @@
                 
                             echo "<tr>";
                                 echo"<td>",$equipoLocal,"</td>" ;
+                                $puntosTotales[$equipoLocal] = 0;
+                                $golesAFavor[$equipoLocal] = 0;
+                                $golesEnContra[$equipoLocal] = 0;
                     
                                 foreach ($valueLocal as $equipoVisitante => $valueDatosPartido) 
                                 {
