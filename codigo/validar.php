@@ -33,8 +33,8 @@
                 }else
                 {
                     p("No se ha enviado nada");
-                }*/
-
+                }
+                
                 if(isset($_REQUEST['enviado']))
                 {
                     p("El formulario ha sido enviado");
@@ -53,17 +53,60 @@
                         p("El genero es ". $_REQUEST['genero']);
                     }
 
-                    if($_REQUEST['genero']=='no')
+                    if($_REQUEST['ciclo']=='no')
                     {
-                        p("Muestra ". $_REQUEST['genero']);
+                        p("Muestra ". $_REQUEST['ciclo']);
                     }
-                }
 
+                    if(!isset($_REQUEST['aficiones']))
+                    {
+                        p("No ha enviado ninguna aficion");
+                    }elseif(count($_REQUEST['aficiones'])>=3)
+                    {
+                        p("Debe elegir como mucho 3");
+                    }
 
+                    //La variables superglobal que guarda los ficheros es $_FILES
+                
+                    //print_r($_FILES);
+                    if(isset($_FILES))
+                    {
+                        $guarda="../upload/";
+                        /*$rutaConNombre=$guarda.$_FILES['fichero']['name'];
+                        if(move_uploaded_file($_FILES['fichero']['tmp_name'], $rutaConNombre))
+                        {
+                            p("Guardado");        
+                        }else
+                        {
+                            p("Error");
+                        }
+
+                        $rutaimagen=$guarda.$_FILES['fichero']['name'];
+                        
+                        if(move_uploaded_file($_FILES['fichero']['tmp_name'], $rutaimagen))
+                        {
+                            echo "<img src='".$rutaimagen."'>";       
+                        }else
+                        {
+                            p("Error");
+                        }
+                    }
+
+                    
+                }*/
+                
+                if(isset($_REQUEST['enviado']))
+                {
+                    p("Has puesto todo correcto");
+                }else
+                {
+
+                
+                
             ?>
 
 
-            <form action="<?php echo self(); ?>" method="post" name="formulario">
+            <form action="<?php echo self(); ?>" method="post" name="formulario" enctype="multipart/form-data">
                 <!-- Input de Texto -->
 
                 <p>
@@ -101,7 +144,7 @@
                     <label for="dormir">dormir</label>
                     <input type="checkbox" name="aficiones[]" id="dormir" value="dormir">
                         
-
+                    <input type="file" name="fichero" id="fichero">
 
                 </p>
 
@@ -113,6 +156,10 @@
 
                 <input type="reset" value="Limpiar">
             </form>
+
+            <?
+                }
+            ?>
         </div>   
 
 
