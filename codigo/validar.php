@@ -26,7 +26,7 @@
 
                 //Primera opcion ver si hay algo en post
 
-                /*if(count($_POST)>0)
+                if(count($_POST)>0)
                 {
                     p("El formulario ha sido enviado");
 
@@ -42,6 +42,10 @@
                     if(!empty($_REQUEST['nombre']))
                     {
                         p("El nombre es ". $_REQUEST['nombre']);
+                    }
+                    else
+                    {
+
                     }
 
                     if(!empty($_REQUEST['pass']))
@@ -72,7 +76,7 @@
                     if(isset($_FILES))
                     {
                         $guarda="../upload/";
-                        /*$rutaConNombre=$guarda.$_FILES['fichero']['name'];
+                        $rutaConNombre=$guarda.$_FILES['fichero']['name'];
                         if(move_uploaded_file($_FILES['fichero']['tmp_name'], $rutaConNombre))
                         {
                             p("Guardado");        
@@ -93,13 +97,13 @@
                     }
 
                     
-                }*/
+                }
                 
-                if(isset($_REQUEST['enviado']))
+                /*if(isset($_REQUEST['enviado']))
                 {
                     p("Has puesto todo correcto");
                 }else
-                {
+                {*/
 
                 
                 
@@ -112,9 +116,22 @@
                 <p>
 
                     <label for="nombre">Nombre y Apellidos:</label>
-
-                    <input type="text" name="nombre" id="idNombre" size="40">
-
+                    <input type="text" name="nombre" id="idNombre" size="40" value="
+                    <?
+                        if(!empty($_REQUEST['nombre'])&& isset($_REQUEST['enviado']))
+                        {
+                            echo $_REQUEST['nombre'];
+                        }
+                    ?>
+                    ">
+                    
+                    <?
+                        if(empty($_REQUEST['nombre'])&& isset($_REQUEST['enviado'])){
+                    ?>
+                        <label for="nombre" style="color:red;">Debe haber un nombre</label>
+                    <?
+                        }
+                    ?>        
                     <label for="pass">Password:</label>
 
                     <input type="password" name="pass" id="idPass" size="40">
@@ -158,7 +175,9 @@
             </form>
 
             <?
+            /*
                 }
+            */
             ?>
         </div>   
 
