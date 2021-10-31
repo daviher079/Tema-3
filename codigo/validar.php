@@ -61,6 +61,10 @@
                     {
                         p("Muestra ". $_REQUEST['ciclo']);
                     }
+                    else
+                    {
+                        p("Muestra ". $_REQUEST['ciclo']);    
+                    }
 
                     if(!isset($_REQUEST['aficiones']))
                     {

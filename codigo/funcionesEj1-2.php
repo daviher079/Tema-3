@@ -12,7 +12,7 @@
 
     function p($cadena)
     {
-        echo "<p>",$cadena,"</p>";
+        echo "<p style=' font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 16px'>",$cadena,"</p>";
     }
 
     function self()
