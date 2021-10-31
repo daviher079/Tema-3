@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
     <link rel="stylesheet" href="../web-root/css/style.css"/>
+    <link rel="stylesheet" href="../web-root/css/styleTarea8.css"/>
     <title>Tarea 08</title>
 </head>
 <body>
@@ -20,70 +21,63 @@
                 <h1>DWES</h1>
                 <h2>Formulario de registro</h2>
             </div>
-            <?php require_once("./funcionesEj1-2.php")?>
-
-            <form action="<?php echo self(); ?>" method="post" name="formulario" enctype="multipart/form-data">
-                <article>
-                    <section class="alfabeticoSC">
-                        <label for="alfabetico">Alfabetico</label>
-                        <input type="text" name="alfabetico" id="alfabetico" size="40" placeholder="Nombre">
-                    </section>
-
-                    <section class="alfabeticoOpcionalSC">
-                        <label for="alfabeticoOpcional">Alfabetico Opcional</label>
-                        <input type="text" name="alfabeticoOpcional" id="alfabeticoOpcional" size="40" placeholder="Nombre">
-                    </section>
-
-                    <section class="alfanumericoSC">
-                        <label for="alfanumerico">Alfanumerico</label>
-                        <input type="text" name="alfanumerico" id="alfanumerico" size="40" placeholder="Apellido" required pattern="[a-zA-Z0-9]+">
-                    </section>
-
-                    <section class="alfanumericoOpcionalSC">
-                        <label for="alfanumericolOpcional">Alfanumerico Opcional</label>
-                        <input type="text" name="alfanumericolOpcional" id="alfanumericolOpcional" size="40" placeholder="Apellido" required pattern="[a-zA-Z0-9]+">
-                    </section>
-
-                    <section class="fechaSC">
-                        <label for="fecha">Fecha</label>
-                        <input type="date" name="fecha" id="fecha" size="40">
-                    </section>
-
-                    <section class="fechaOpcionalSC">
-                        <label for="fechaOpcional">Fecha Opcional</label>
-                        <input type="date" name="fechaOpcional" id="fechaOpcional" size="40">
-                    </section>
-
-                    <section class="radioObligatorioSC">
-                        <label>Radio Obligatorio</label>
-                        <input type="radio" name="genero" id="opcion1" value="opcion1"><label for="opcion1">Opción 1</label>
-                        <input type="radio" name="genero" id="opcion2" value="opcion2"><label for="opcion2">opcion 2</label>
-                        <input type="radio" name="genero" id="opcion3" value="opcion3"><label for="opcion2">opcion 3</label>
-                    </section>
-
-
-
-
-                </article>   
-                        
-
+            <?php 
+                require_once("./funcionesEj1-2.php");
+                require_once("./validarTarea8.php");
 
                 
 
-                <!-- Input de tipo Submit -->
+                if(validarFormulario()==true)
+                {
+                    p("Has puesto todo correcto");
+                }else
+                {
+                
+                
+            ?>
+        
+            <form action="<?php echo self(); ?>" method="post" name="formulario" enctype="multipart/form-data">
+                <article>
+                    <section >
+                        <label for="alfabetico">Alfabetico</label>
+                        <input type="text" name="alfabetico" id="alfabetico" size="30" placeholder="Nombre" value="
+                        <?php
+                            recordarAlfabetico();
+                        ?>">
+                        <?php
+                            comprobarAlfabetico();
+                        ?>
+                    </section>
 
-                <input type="submit" value="Enviar los Datos">
+                    <section >
+                        <label for="alfanumerico">Alfanumerico</label>
+                        <input type="text" name="alfanumerico" id="alfanumerico" size="30" placeholder="Apellido" pattern="[a-zA-Z0-9]+" value="
+                        <?php
+                            recordarAlfanumerico();
+                        ?>    
+                        ">
+                        <?php
+                            comprobarAlfanumerico();
+                        ?>
+                    </section>
+                    
+                
+                    <section id="botones">
 
-                <!-- Input de tipo Reset -->
+                        <input type="submit" value="Enviar los Datos" name="enviado">
 
-                <input type="reset" value="Limpiar">
+                        <input type="reset" value="Limpiar">
+                    </section>
+                    
+
+                </article>
             </form>
         </div>   
+        <?php
+                }
+        ?>
         
         
-    
-    
-
 
     </main>
     <footer>

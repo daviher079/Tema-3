@@ -1,0 +1,41 @@
+h2
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 32px;
+    margin-bottom: 50px;
+    color: #d02b4d;
+}
+
+form
+{
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #d02b4d;
+}
+
+form article section
+{
+    margin-bottom: 20px;
+}
+
+form article section input
+{
+    border-color: #d02b4d;
+    color: black;
+    border-style: solid;
+    padding: 7px;
+    border-radius: 15px;
+}
+
+#botones
+{
+    margin-bottom: 150px;
+    background-color: white;
+    cursor: pointer;
+}
+
+#fichero
+{
+    border-style: none;
+
+}

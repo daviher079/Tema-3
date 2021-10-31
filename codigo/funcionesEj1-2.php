@@ -1,4 +1,4 @@
-<?
+<?php
     //Ejercicio 1
     function br()
     {
@@ -20,6 +20,10 @@
         return basename($_SERVER['SCRIPT_FILENAME']);
     }
 
+    function label($cadena)
+    {
+        echo "<label for='nombre' style='color:red;'>".$cadena."</label>";
+    }
     
     function letraDni($numero)
     {

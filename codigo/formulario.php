@@ -59,7 +59,6 @@
                     <input type="checkbox" name="aficiones[]" id="dormir" value="dormir">
                         
 
-
                 </p>
 
                 <!-- Input de tipo Submit -->

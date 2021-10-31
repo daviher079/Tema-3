@@ -117,7 +117,7 @@
 
                     <label for="nombre">Nombre y Apellidos:</label>
                     <input type="text" name="nombre" id="idNombre" size="40" value="
-                    <?
+                    <?php
                         if(!empty($_REQUEST['nombre'])&& isset($_REQUEST['enviado']))
                         {
                             echo $_REQUEST['nombre'];
@@ -125,11 +125,11 @@
                     ?>
                     ">
                     
-                    <?
+                    <?php
                         if(empty($_REQUEST['nombre'])&& isset($_REQUEST['enviado'])){
                     ?>
                         <label for="nombre" style="color:red;">Debe haber un nombre</label>
-                    <?
+                    <?php
                         }
                     ?>        
                     <label for="pass">Password:</label>
