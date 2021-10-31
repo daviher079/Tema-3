@@ -40,19 +40,27 @@
 
     function generaNumeros(&$array, $min, $max,$nGenerados, $repeticion)
     {
-        $prueba=0;
+        
         if($repeticion==true)
         {
             
             for ($i=0; $i < $nGenerados ; $i++) 
             { 
                 $numero=rand($min, $max);
-                
-                /*do{
+                if(array_search($numero, $array)==false)
+                {
+                    
                     $array[$i]=$numero;
-                }while(array_search($numero, $array)==false);
-                */
+                }else
+                {
+                    $array[array_search($numero, $array)]=$numero;
+                }
+
+                
+                
             }
+
+            
 
             
         }
@@ -72,8 +80,7 @@
     }
 
 
-    
-
+   
     
 
 ?>
