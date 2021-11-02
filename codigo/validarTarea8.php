@@ -3,57 +3,61 @@
 
     function validarFormulario()
     {
-        $bandera;
-        if(validarAlfabetico()==true && validarAlfanumerico()==true && validarFecha()==true & validarOpcion()==true && validarDesplegable()==true && validarChecks()==true && validarpass()==true)
+        
+        $bandera=true;
+        if(isset($_REQUEST['enviado']))
         {
-            $bandera=true;
-            validarAlfabeticoOpc();
-            validarAlfanumericoOpc();
-            validarFechaOpc();
-            mostrarImagen();
+            if(validarAlfabetico()==true && validarAlfanumerico()==true && validarFecha()==true && validarOpcion()==true/* && validarDesplegable()==true && validarChecks()==true && validarpass()==true*/)
+            {
+                
+                
+                
+                //mostrarImagen();
+            }   
+            else{
+                $bandera= false;
+            }     
+        } else{
+            $bandera= false;
         }
+        
         return $bandera;
     }
 
-    function recordarAlfabetico()
-    {
-        if(!empty($_REQUEST['alfabetico'])&& isset($_REQUEST['enviado']))
-        {
-            echo $_REQUEST['alfabetico'];        
-        }
-    }
-
-    function comprobarAlfabetico()
-    {
-        if(empty($_REQUEST['alfabetico'])&& isset($_REQUEST['enviado'])){
     
-            label("Debe haber un campo alfabetico");
+    function comprobarGenerico($var)
+    {
+        if(empty($_REQUEST[$var]) && isset($_REQUEST['enviado'])){
+            
+            label("Debe haber un campo ".$var);
         }           
     }
     
+    function recordarGenerico($var)
+    {
+        if(!empty($_REQUEST[$var])&& isset($_REQUEST['enviado']))
+        {
+            echo $_REQUEST[$var];        
+        }
+    }
+
     function validarAlfabetico()
     {
-        $bandera;
-        if(!empty($_REQUEST['alfabetico'])&& isset($_REQUEST['enviado']))
+        $bandera=true;
+        if(!empty($_REQUEST['alfabetico']) && isset($_REQUEST['enviado']))
         {
             $bandera=true;  
-            p("El campo alfabetico es: ".$_REQUEST['alfabetico']);      
+                 
+        }else
+        {
+            $bandera=false;
         }
         return $bandera;
     }
-    
-    function recordarAlfabeticoOpc()
-    {
-        if(!empty($_REQUEST['alfabeticoOpcional'])&& isset($_REQUEST['enviado']))
-        {
-            echo $_REQUEST['alfabeticoOpcional'];        
-        }
-    }
-
 
     function validarAlfabeticoOpc()
     {
-        if(!empty($_REQUEST['alfabeticoOpcional'])&& isset($_REQUEST['enviado']))
+        if(!empty($_REQUEST['alfabeticoOpcional']) && isset($_REQUEST['enviado']))
         { 
             p("El campo alfabetico opcional es: ".$_REQUEST['alfabeticoOpcional']);      
         }else
@@ -62,31 +66,16 @@
         }
     }
 
-
-    function recordarAlfanumerico()
-    {
-        if(!empty($_REQUEST['alfanumerico'])&& isset($_REQUEST['enviado']))
-        {
-            echo $_REQUEST['alfanumerico'];        
-        }
-    }
-
-    function comprobarAlfanumerico()
-    {
-        if(empty($_REQUEST['alfanumerico'])&& isset($_REQUEST['enviado']))
-        {
-            label("Debe haber un campo alfanumerico");
-        }            
-    }
-
-
     function validarAlfanumerico()
     {
-        $bandera;
+        $bandera=true;
         if(!empty($_REQUEST['alfanumerico'])&& isset($_REQUEST['enviado']))
         {
-            $bandera=true;  
-            p("El campo alfanumerico es: ".$_REQUEST['alfanumerico']);      
+            $bandera=true;   
+        }
+        else
+        {
+            $bandera=false;
         }
         return $bandera;
     }
@@ -111,44 +100,21 @@
             p("El campo alfanumerico opcional está vacio ");
         }
     }
-
-
-    function recordarFecha()
-    {
-        if(!empty($_REQUEST['fecha'])&& isset($_REQUEST['enviado']))
-        {
-            echo $_REQUEST['fecha'];        
-        }
-    }
-
-    function comprobarFecha()
-    {
-        if(empty($_REQUEST['fecha'])&& isset($_REQUEST['enviado'])){
-            
-            label("Debe haber un campo fecha");
-        }           
-    }
     
     function validarFecha()
     {
-        $bandera;
+        $bandera=true;
         if(!empty($_REQUEST['fecha'])&& isset($_REQUEST['enviado']))
         {
             $bandera=true;  
-            p("El campo fecha es: ".$_REQUEST['fecha']);      
+                  
+        }else
+        {
+            $bandera=false;
         }
         return $bandera;
     }
-
-    function recordarFechaOpc()
-    {
-        if(!empty($_REQUEST['fechaOpcional'])&& isset($_REQUEST['enviado']))
-        {
-            echo $_REQUEST['fechaOpcional'];        
-        }
-    }
-
-
+    
     function validarFechaOpc()
     {
         if(!empty($_REQUEST['fechaOpcional'])&& isset($_REQUEST['enviado']))
@@ -162,63 +128,75 @@
     
     function validarOpcion()
     {
-        $bandera;
+        $bandera=true;
         if(!empty($_REQUEST['opcion']) && isset($_REQUEST['enviado']))
         {
             $bandera=true;  
-            p("El campo opcion es: ".$_REQUEST['opcion']);      
+                  
+        }else
+        {
+            $bandera=false;
         }
         return $bandera;
     }
 
-    function comprobarOpcion()
-    {
-        if(!isset($_REQUEST['opcion']) && isset($_REQUEST['enviado']))
-        {
-            label("Debe haber una opcion marcada");
-        }
-    }
+    
+/*
+    
+
     
     function validarDesplegable()
     {
-        $bandera;
+        $bandera=true;
         
-        if(($_REQUEST['ciclo']=='dam'||$_REQUEST['ciclo']=='daw')&& isset($_REQUEST['enviado']))
+        if(($_REQUEST['ciclo']=='dam'||$_REQUEST['ciclo']=='daw') && isset($_REQUEST['enviado']))
         {
             $bandera=true; 
             p("El campo del desplegable es: ". $_REQUEST['ciclo']);    
         }
 
-        return true;
+        return $bandera;
     }
 
     function comprobarDesplegable()
     {
-        if($_REQUEST['ciclo']=='no'&& isset($_REQUEST['enviado']))
+        if(!empty($_REQUEST['ciclo'])&& isset($_REQUEST['enviado']))
         {
-            label("Debe haber una opcion marcada en el desplegable");
+            if($_REQUEST['ciclo']=='no')
+            {
+                label("Debe haber una opcion marcada en el desplegable");
+            }
+            
         }
     }
 
     function comprobarChecks()
     {
 
-        if(!isset($_REQUEST['aficiones']) && isset($_REQUEST['enviado']))
+        if(empty($_REQUEST['checks']) && isset($_REQUEST['enviado']))
         {
-            label("No ha marcado ningun check");
-        }elseif(count($_REQUEST['checks'])>=3)
-        {
-            label("Debe elegir entre 1 y 3 opciones");
+            if(count($_REQUEST['checks'])>=3)
+            {
+                label("Debe elegir entre 1 y 3 opciones");
+            }elseif(count($_REQUEST['checks'])==0)
+            {
+                label("No ha marcado ningun check");
+            }
+                
         }
     }
 
     function validarChecks()
     {
-        $bandera;
-        if(count($_REQUEST['checks'])>=3)
+        $bandera=true;
+        if(empty($_REQUEST['checks']) && isset($_REQUEST['enviado']))
         {
-            p($_REQUEST['aficiones']);
-            $bandera=true;
+            if(count($_REQUEST['checks'])<=3 && count($_REQUEST['checks'])>=1)
+            {
+                p($_REQUEST['checks']);
+                $bandera=true;
+            }
+
         }
 
         return $bandera;
@@ -247,7 +225,7 @@
     
     function validarpass()
     {
-        $bandera;
+        $bandera=true;
         if(!empty($_REQUEST['pass'])&& isset($_REQUEST['enviado']))
         {
             $bandera=true;  
@@ -275,5 +253,5 @@
             }
         }
     }
-
+*/
 ?>
