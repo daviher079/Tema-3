@@ -138,10 +138,10 @@
         return $bandera;
     }
 
-    function recordarRadio($var, $numero)
+    function recordarRadio($var)
     {
         
-        if(!empty($_REQUEST['opcion']) && isset($_REQUEST['enviado']) && $var==$numero)
+        if(!empty($_REQUEST['opcion']) && isset($_REQUEST['enviado']) && $var==$_REQUEST['opcion'])
         {
             echo "checked";
         }    
@@ -156,9 +156,9 @@
         }           
     }
 
-    function recordarSelect()
+    function recordarSelect($var)
     {
-        if((($_REQUEST['ciclo']=='dam'||$_REQUEST['ciclo']=='daw')) && isset($_REQUEST['enviado']))
+        if(isset($_REQUEST['enviado']) && !empty($_REQUEST['ciclo']) && $_REQUEST['ciclo']==$var)
         {
             echo "selected";
         }    
@@ -204,7 +204,7 @@
             label("Debe elegir entre 1 y 3 opciones");
                 
         }
-        elseif((count($_REQUEST['checks'])>3 || count($_REQUEST['checks'])<1) && !empty($_REQUEST['checks']) && isset($_REQUEST['enviado']))
+        elseif(!empty($_REQUEST['checks']) && isset($_REQUEST['enviado']) && (count($_REQUEST['checks'])>3 || count($_REQUEST['checks'])<1) )
         {
             label("Debe elegir entre 1 y 3 opciones");
             
@@ -215,7 +215,7 @@
     {
         $bandera=true;
 
-        if((count($_REQUEST['checks'])<=3 && count($_REQUEST['checks'])>=1) && !empty($_REQUEST['checks']) && isset($_REQUEST['enviado']))
+        if(!empty($_REQUEST['checks']) && isset($_REQUEST['enviado']) && (count($_REQUEST['checks'])<=3 && count($_REQUEST['checks'])>=1))
         {
             $bandera=true;
             
@@ -262,7 +262,7 @@
             $guarda="../upload/";
             $rutaConNombre=$guarda.$_FILES['fichero']['name'];
             
-            echo $rutaConNombre;
+            
             $rutaimagen=$guarda.$_FILES['fichero']['name'];
             
             if(move_uploaded_file($_FILES['fichero']['tmp_name'], $rutaimagen))
