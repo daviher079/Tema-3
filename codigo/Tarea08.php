@@ -111,9 +111,9 @@
 
                     <section>
                         <label>Radio Obligatorio:</label><br>
-                        <input type="radio" name="opcion" id="opcion1" value="opcion1" <?php recordarRadio("opcion1", "opcion1")?>><label for="opcion1">Opción 1</label>
-                        <input type="radio" name="opcion" id="opcion2" value="opcion2" <?php recordarRadio("opcion2", "opcion2")?>><label for="opcion2">Opción 2</label>
-                        <input type="radio" name="opcion" id="opcion3" value="opcion3" <?php recordarRadio("opcion3", "opcion3")?>><label for="opcion3">Opción 3</label>
+                        <input type="radio" name="opcion" id="opcion1" value="opcion1" <?php recordarRadio("opcion1")?>><label for="opcion1">Opción 1</label>
+                        <input type="radio" name="opcion" id="opcion2" value="opcion2" <?php recordarRadio("opcion2")?>><label for="opcion2">Opción 2</label>
+                        <input type="radio" name="opcion" id="opcion3" value="opcion3" <?php recordarRadio("opcion3")?>><label for="opcion3">Opción 3</label>
                         <?php
                             comprobarGenerico("opcion");
                         ?>
@@ -122,9 +122,9 @@
                     <section>
                         <label>Seleccionar opciones</label><br>
                         <select name="ciclo" id="ciclo">  
-                            <option value="no" <?php recordarSelect()?>>Seleccione una opción</option>  
-                            <option value="dam" <?php recordarSelect()?>>DAM</option>
-                            <option value="daw" <?php recordarSelect()?>>DAW</option>
+                            <option value="no" <?php recordarSelect("no")?>>Seleccione una opción</option>  
+                            <option value="dam" <?php recordarSelect("dam")?>>DAM</option>
+                            <option value="daw" <?php recordarSelect("daw")?>>DAW</option>
                         </select>  
                         <?php
                             comprobarSelect();
