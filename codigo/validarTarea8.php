@@ -7,12 +7,10 @@
         $bandera=true;
         if(isset($_REQUEST['enviado']))
         {
-            if(validarAlfabetico()==true && validarAlfanumerico()==true && validarFecha()==true && validarOpcion()==true/* && validarDesplegable()==true && validarChecks()==true && validarpass()==true*/)
+            if(validarAlfabetico()==true && validarAlfanumerico()==true && validarFecha()==true && validarOpcion()==true && validarDesplegable()==true && validarChecks()==true && validarMail()==true && validarpass()==true)
             {
+                p("Has puesto todo correcto");
                 
-                
-                
-                //mostrarImagen();
             }   
             else{
                 $bandera= false;
@@ -140,10 +138,31 @@
         return $bandera;
     }
 
-    
-/*
-    
+    function recordarRadio($var, $numero)
+    {
+        
+        if(!empty($_REQUEST['opcion']) && isset($_REQUEST['enviado']) && $var==$numero)
+        {
+            echo "checked";
+        }    
+    }
 
+    function comprobarSelect()
+    {
+        
+        if(!empty($_REQUEST['ciclo']) && isset($_REQUEST['enviado']) && $_REQUEST['ciclo']=='no'){
+            
+            label("Debe haber un campo ciclo");
+        }           
+    }
+
+    function recordarSelect()
+    {
+        if((($_REQUEST['ciclo']=='dam'||$_REQUEST['ciclo']=='daw')) && isset($_REQUEST['enviado']))
+        {
+            echo "selected";
+        }    
+    }
     
     function validarDesplegable()
     {
@@ -152,75 +171,74 @@
         if(($_REQUEST['ciclo']=='dam'||$_REQUEST['ciclo']=='daw') && isset($_REQUEST['enviado']))
         {
             $bandera=true; 
-            p("El campo del desplegable es: ". $_REQUEST['ciclo']);    
+             
+        }else
+        {
+            $bandera=false;
         }
-
+    
         return $bandera;
     }
 
-    function comprobarDesplegable()
+    function recordarChecks($var)
     {
-        if(!empty($_REQUEST['ciclo'])&& isset($_REQUEST['enviado']))
+        if(isset($_REQUEST['checks']) && isset($_REQUEST['enviado']))
         {
-            if($_REQUEST['ciclo']=='no')
-            {
-                label("Debe haber una opcion marcada en el desplegable");
-            }
+            $arrayChecks=$_REQUEST['checks'];
             
+            for ($i=0; $i < count($arrayChecks); $i++) { 
+                if($arrayChecks[$i]==$var)
+                {
+                    echo "checked";
+                }
+            }
         }
     }
 
     function comprobarChecks()
     {
-
+    
         if(empty($_REQUEST['checks']) && isset($_REQUEST['enviado']))
         {
-            if(count($_REQUEST['checks'])>=3)
-            {
-                label("Debe elegir entre 1 y 3 opciones");
-            }elseif(count($_REQUEST['checks'])==0)
-            {
-                label("No ha marcado ningun check");
-            }
+            
+            label("Debe elegir entre 1 y 3 opciones");
                 
         }
+        elseif((count($_REQUEST['checks'])>3 || count($_REQUEST['checks'])<1) && !empty($_REQUEST['checks']) && isset($_REQUEST['enviado']))
+        {
+            label("Debe elegir entre 1 y 3 opciones");
+            
+        }
     }
-
+    
     function validarChecks()
     {
         $bandera=true;
-        if(empty($_REQUEST['checks']) && isset($_REQUEST['enviado']))
+
+        if((count($_REQUEST['checks'])<=3 && count($_REQUEST['checks'])>=1) && !empty($_REQUEST['checks']) && isset($_REQUEST['enviado']))
         {
-            if(count($_REQUEST['checks'])<=3 && count($_REQUEST['checks'])>=1)
-            {
-                p($_REQUEST['checks']);
-                $bandera=true;
-            }
-
+            $bandera=true;
+            
+        }else
+        {
+            $bandera=false;
         }
-
         return $bandera;
     }
 
-    if(!empty($_REQUEST['pass']))
-    {
-        p("La contraseña es ". $_REQUEST['pass']);
-    }
 
-    function recordarPass()
+    function validarMail()
     {
-        if(!empty($_REQUEST['pass'])&& isset($_REQUEST['enviado']))
+        $bandera=true;
+        if(!empty($_REQUEST['email']) && isset($_REQUEST['enviado']))
         {
-            echo $_REQUEST['pass'];        
+            $bandera=true;  
+                 
+        }else
+        {
+            $bandera=false;
         }
-    }
-
-    function comprobarPass()
-    {
-        if(empty($_REQUEST['pass'])&& isset($_REQUEST['enviado'])){
-    
-            label("Debe haber un campo password");
-        }           
+        return $bandera;
     }
     
     function validarpass()
@@ -229,7 +247,10 @@
         if(!empty($_REQUEST['pass'])&& isset($_REQUEST['enviado']))
         {
             $bandera=true;  
-            p("El campo password es: ".$_REQUEST['pass']);      
+                  
+        }else
+        {
+            $bandera=false;
         }
         return $bandera;
     }
@@ -241,7 +262,7 @@
             $guarda="../upload/";
             $rutaConNombre=$guarda.$_FILES['fichero']['name'];
             
-
+            echo $rutaConNombre;
             $rutaimagen=$guarda.$_FILES['fichero']['name'];
             
             if(move_uploaded_file($_FILES['fichero']['tmp_name'], $rutaimagen))
@@ -253,5 +274,5 @@
             }
         }
     }
-*/
+
 ?>
