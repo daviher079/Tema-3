@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="../../web-rootPrincipal/imgPrincipal/LogotipoDavid.jpg"/>
+        <img class="logo" src="../../web-rootIndexPrincipal/img/LogotipoDavidVicente.png"/>
         <h1>Tarea 08</h1>
     </header>
     <main>
@@ -205,7 +205,7 @@
         <a href="codigoTarea06.php?ficheroPHP=<?php
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
-        ?>"><img src="../web-root/img/gafas-de-sol.png" height="100px"></a>
+        ?>"><img src="../../web-rootIndexPrincipal/img/gafas-de-sol.png" height="100px"></a>
     </footer>
 </body>
 </html>

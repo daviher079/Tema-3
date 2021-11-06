@@ -117,17 +117,19 @@
                 
                 //dos digitos guion o barra dos digitos guion o barra cuatro digitos Y mayor de edad
                 echo "<br>Probar la fecha<br>"; //[0-9]{2}(-|\/)[0-9]{4}
-                $patron='/[0-9]{2}(-|\/)/';
-                echo preg_match($patron, "1-");
-
+                $patron='/[0-9]{2}(-|\/)[0-9]{2}(-|\/)[0-9]{4}/';
+                echo preg_match($patron, "12-1-2021");
 
 
                 echo "<br>Comprobar DNI con 8 dígitos y una letra<br>";
                 $patron='/^[0-9]{8}[A-Z]{1}$/';
                 echo preg_match($patron, "12345678B");
 
+                echo "<br>Comprobar correo <br>";
+                $patron='/[a-z]+@[a-z]+\.[a-z]{2,}/';
+                echo preg_match($patron, "da@g.co");
 
-
+                //\.{2,}
 
                 
             ?>
