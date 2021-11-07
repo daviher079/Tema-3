@@ -22,7 +22,7 @@
 
     function label($cadena)
     {
-        echo "<label for='nombre' style='color:red;'>".$cadena."</label>";
+        echo "<label for='nombre' style='color:red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;'>".$cadena."</label>";
     }
     
     function letraDni($numero)
