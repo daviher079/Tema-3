@@ -3,10 +3,9 @@
     //Definicion de las constantes que contienen los patrones que comprueban si la cadena es correcta
     define("PATRONNOMBRE", '/^[A-Z]{1}[a-z]{2}/i');
     define("PATRONAPELLIDOS", '/[A-Z]{3}\s[A-Z]{3}/i');
-    define("PATRONAPELLIDOS", '/[A-Z]{3}\s[A-Z]{3}/i');
     define("PATRONFECHA", '/[0-9]{2}(-|\/)[0-9]{2}(-|\/)[0-9]{4}/');
     define("PATRONDNI", '/^[0-9]{8}[A-Z]{1}$/');
-    define("PATRONCORREO", '/[a-z]+@[a-z]+\.[a-z]{2,}/');
+    define("PATRONCORREO", '/[a-z][0-9]+@[a-z]+\.[a-z]{2,}/');
     /*
         En esta constante lo primero que se crea es la fecha actual y se le da el formato 
         dd-mm-yyyy despues esto se mete dentro de strtotime y se concatena - 18 years para 
@@ -21,10 +20,10 @@
         los inputs sino devuelve false 
     */
     function validarFormulario(){
-        
         $bandera=true;
         if(isset($_REQUEST['enviado']))
         {
+            
             
             if(validarNombre()==true && validarApellidos()==true && validarFecha()==true && validarDNI()==true && validarCorreo()==true)
             {
@@ -234,19 +233,21 @@
     function validarCorreo()
     {
         $bandera=true;
-        
         if(!empty($_REQUEST['correo']) && isset($_REQUEST['enviado']) && expresionGenerico(PATRONCORREO, $_REQUEST['correo'])==true)
         {
+            
             $bandera=true;    
         }
         else
         {
+            
             $bandera=false;
         }
+
         return $bandera;
     }
 
 
-    
+   
 
 ?>

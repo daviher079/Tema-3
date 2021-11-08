@@ -117,7 +117,7 @@
                         ?>">
 
                         <?php
-                        
+                            echo validarCorreo();
                             if(isset($_REQUEST['enviado']) && expresionGenerico(PATRONDNI, $_REQUEST['dni'])==true)
                             {
                                 
@@ -143,8 +143,14 @@
                         ?>">
 
                         <?php
-                            if(isset($_REQUEST['enviado']) && expresionGenerico(PATRONCORREO, $_REQUEST['correo'])==true)
+                        
+                            if(isset($_REQUEST['enviado']) && expresionGenerico(PATRONCORREO, $_REQUEST['correo'])==false)
                             {
+                                if(expresionGenerico(PATRONCORREO, $_REQUEST['correo'])==false)
+                                {
+
+                                    echo"hola"; 
+                                }
                                 label("El correo debe estar formado por 1 o mas caracteres una @ 1 o mas caracteres y 2 o mas caracteres<br>");
                             }
                             comprobarGenerico("correo");

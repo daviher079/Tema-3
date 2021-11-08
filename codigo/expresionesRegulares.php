@@ -77,6 +77,7 @@
                 //+ puede coincidir una o mas veces
                 //No esta funcionando en este momento
                 $patron='/<\/([a-z]+[0-9]?)>/';
+                $patron='/<\/[a-z]+[0-9]?>/i';
                 //Puede tener mas de una letra pero al menos una
                 //$patron='/<\/(.)+>/';
                 echo preg_match($patron, "<h1>Tambien sirve para decir que no contenga</h1>
@@ -87,8 +88,13 @@
                 <p>Tambien sirve para decir que no contenga</p>
                 <i>Tambien sirve para decir que no contenga</i>", $array);
 
+                
                 echo "<pre>";
-                    print_r($array);
+                    foreach($array as $value)
+                    {
+                        $value=str_replace("<","&lt", $value);
+                        print_r(str_replace(">","&gt", $value));
+                    }
                 echo"</pre>"; 
                 
                 //Comprobar que el IBAN es valido va a entrar en el examen
@@ -136,8 +142,8 @@
 
 
                 echo "<br>Comprobar correo <br>";
-                $patron='/[a-z]+@[a-z]+\.[a-z]{2,}/';
-                echo preg_match($patron, "da@g.co");
+                $patron='/[a-z][0-9]+@[a-z]+\.[a-z]{2,}/';
+                echo preg_match($patron, "da079@v.com");
 
                 
 
