@@ -5,7 +5,7 @@
     define("PATRONAPELLIDOS", '/[A-Z]{3}\s[A-Z]{3}/i');
     define("PATRONFECHA", '/[0-9]{2}(-|\/)[0-9]{2}(-|\/)[0-9]{4}/');
     define("PATRONDNI", '/^[0-9]{8}[A-Z]{1}$/');
-    define("PATRONCORREO", '/[a-z][0-9]+@[a-z]+\.[a-z]{2,}/');
+    define("PATRONCORREO", '/[a-z0-9]+@[a-z0-9]+\.[a-z0-9]{2,}/');
     /*
         En esta constante lo primero que se crea es la fecha actual y se le da el formato 
         dd-mm-yyyy despues esto se mete dentro de strtotime y se concatena - 18 years para 
