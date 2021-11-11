@@ -17,38 +17,30 @@
     <main>
         <?php
             require_once("./validaElegirFIchero.php");
+            require_once("../funcionesEj1-2.php");
         ?>
         <div class="content">
             <div class="title">
                 <h1>DWES</h1>
                 <h2>Elige Fichero</h2>
             </div>
-        </div>  
-        <form action="EligeFichero.php" method="post" >
-            <article>
-            <section>
-                <label for="nombreFichero">Nombre fichero:</label>
-                <input type="text" name="nombreFichero" id="nombreFichero" size="30" placeholder="Nombre">
-                <?php
-                    comprobarGenerico("nombreFichero");
-                ?>
-            </section>
+        </div> 
+           
+            <textarea name="textarea" rows="10" cols="50"></textarea>
+         
             <section id="botones">
                 <input type="submit" name="boton" value="Editar">
-                <input type="submit" name="boton" value="Leer">
+                <a href="./EligeFichero.php">Volver</a>
             </section>
             </article>
-        </form>
+        
 
         <?php
         //sizeof es igual que la funcion count
-            if(sizeof($_REQUEST)>0)
+            if(sizeof($_REQUEST)>0 && isset($_REQUEST['boton']))
             {
                 if($_REQUEST['boton']=='Editar')
-                    header('Location: ./EditaFichero.php?fi='.$_REQUEST['nombreFichero']);
-
-                if($_REQUEST['boton']=='Leer')
-                    header('Location: ./LeeFichero.php?fi='.$_REQUEST['nombreFichero']);    
+                    header('Location: Editar.php?fi='.$_REQUEST['nombreFichero']);
             }
         ?>
            
