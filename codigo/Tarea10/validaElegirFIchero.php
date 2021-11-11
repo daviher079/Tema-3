@@ -20,11 +20,23 @@ require_once("../funcionesEj1-2.php");
 
     function comprobarFicheroExistente($fichero)
     {
+<<<<<<< HEAD
         $rutaFichero="./directorioFicheros".$fichero;
         if(file_exists($rutaFichero)==false)
         {
             p("El fichero no existe, primero debe crearlo");
         }
+=======
+        $bandera=true;
+        $rutaFichero="./directorioFicheros".$fichero;
+
+        if(file_exists($rutaFichero)==false )
+
+        {
+            $bandera=false;
+        }
+        return $bandera;
+>>>>>>> a62b35ae3b01b19643befb2c6b2a953049a62be7
     }
 
 ?>

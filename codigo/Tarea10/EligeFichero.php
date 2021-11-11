@@ -45,10 +45,12 @@
             if(sizeof($_REQUEST)>0)
             {
                 if($_REQUEST['boton']=='Editar')
+
                     header('Location: Editar.php?fi='.$_REQUEST['nombreFichero']);
 
                 if($_REQUEST['boton']=='Leer')
                     header('Location: LeerFichero.php?fi='.$_REQUEST['nombreFichero']);    
+
             }
         ?>
            
