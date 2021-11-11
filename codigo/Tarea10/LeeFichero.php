@@ -24,21 +24,12 @@
                 <h2>Elige Fichero</h2>
             </div>
         </div>  
-        <form action="EligeFichero.php" method="post" >
-            <article>
-            <section>
-                <label for="nombreFichero">Nombre fichero:</label>
-                <input type="text" name="nombreFichero" id="nombreFichero" size="30" placeholder="Nombre">
-                <?php
-                    comprobarGenerico("nombreFichero");
-                ?>
-            </section>
+        <textarea name="textarea" rows="10" cols="50">Write something here</textarea>
             <section id="botones">
                 <input type="submit" name="boton" value="Editar">
-                <input type="submit" name="boton" value="Leer">
             </section>
             </article>
-        </form>
+        
 
         <?php
         //sizeof es igual que la funcion count
@@ -48,7 +39,7 @@
                     header('Location: Editar.php?fi='.$_REQUEST['nombreFichero']);
 
                 if($_REQUEST['boton']=='Leer')
-                    header('Location: LeerFichero.php?fi='.$_REQUEST['nombreFichero']);    
+                    header('Location: Leer.php?fi='.$_REQUEST['nombreFichero']);    
             }
         ?>
            
