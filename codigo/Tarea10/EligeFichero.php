@@ -46,10 +46,10 @@
             {
                 if($_REQUEST['boton']=='Editar')
 
-                    header('Location: Editar.php?fi='.$_REQUEST['nombreFichero']);
+                    header('Location: EditaFichero.php?fi='.$_REQUEST['nombreFichero']);
 
                 if($_REQUEST['boton']=='Leer')
-                    header('Location: LeerFichero.php?fi='.$_REQUEST['nombreFichero']);    
+                    header('Location: LeeFichero.php?fi='.$_REQUEST['nombreFichero']);    
 
             }
         ?>

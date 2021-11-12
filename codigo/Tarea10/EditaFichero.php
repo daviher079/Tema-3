@@ -27,14 +27,12 @@
         </div> 
 
         <form action="EditaFichero.php" method="post">
+            <input type="hidden" name="fi" value="<?php echo $_REQUEST['fi'];?>">
            <?php
-            //require_once("./CodigoEditaFichero.php"); 
+            
             $rutaFichero="./FicherosTarea10/".$_REQUEST['fi'];
             $rutaFicheroTemp="./FicherosTarea10/temp.txt";
 
-            
-                //echo $rutaFichero;
-                //echo $rutaFicheroTemp;
                 if(file_exists($rutaFichero)==true)
                 {
                     if(!$fInicial=fopen($rutaFichero,'r'))
@@ -42,75 +40,73 @@
                         echo "Ha habido un error  y no se ha abierto el fichero";
                         exit;
                     }
-
-                    if(!$fTemp=fopen($rutaFicheroTemp,'w'))
-                    {
-                        echo "Ha habido un error y no se ha abierto el fichero";
-                        exit;
-                    }
             ?>
                 <textarea name="textarea" rows="10" cols="50"><?php
                     while($linea=fgets($fInicial, filesize($rutaFichero)))
                     {
                         echo $linea;
-                        fwrite($fTemp, $linea, strlen($linea));
                     }
-            ?></textarea>
+                ?></textarea>
             <?php              
                     
+                }else
+                {
+                    if(!$fInicial=fopen($rutaFichero,'w'))
+                    {
+                        echo "Ha habido un error y no se ha abierto el fichero";
+                        exit;
+                    }
+            ?>
+                <textarea name="textarea" rows="10" cols="50"></textarea>
+
+            <?php
                 }
             ?>
-        </form>    
            
-         
-            <section id="botones">
-                <input type="submit" name="boton" value="Modificar">
-
-           
-            <textarea name="textarea" rows="10" cols="50"></textarea>
-         
-            <section id="botones">
-                <input type="submit" name="boton" value="Editar">
-
-                <a href="./EligeFichero.php">Volver</a>
+           <section id="botones">
+               <input type="submit" name="boton" value="Guardar">
+               
+               <a href="./EligeFichero.php">Volver</a>
             </section>
-            </article>
+        
+        </form>    
         
 
         <?php
         //sizeof es igual que la funcion count
 
-
             if(sizeof($_REQUEST)>0 && isset($_REQUEST['boton']))
             {
-                
-                if($_REQUEST['boton']=='Modificar')
+                if($_REQUEST['boton']=='Guardar')
                 {
+                    if(file_exists($rutaFichero)==true)
+                    {
+                        if(!$fInicial=fopen($rutaFichero,'r'))
+                        {
+                            echo "Ha habido un error  y no se ha abierto el fichero";
+                            exit;
+                        }
+
+                        if(!$fTemp=fopen($rutaFicheroTemp,'w'))
+                        {
+                            echo "Ha habido un error y no se ha abierto el fichero";
+                            exit;
+                        }
+
+                        $text = trim($_REQUEST['textarea']); 
                     
-                    $text = trim($_REQUEST['textarea']); 
-                    $textArea = explode("\n", $text); 
-                    fwrite($fTemp, $textArea, strlen($textArea));    
-                
+                        fwrite($fTemp, $text, strlen($text));    
                     
+                        fclose($fTemp);
+                        fclose($fInicial);
 
-                    unlink($rutaFichero);
-                    rename($rutaFicheroTemp,$rutaFichero);
-                    fclose($rutaFichero);
-                    fclose($rutaFicheroTemp);
-                    //header('Location: ./LeeFichero.php?fi2='.$_REQUEST['fi']);
-                }
-            }else
-            {
-                $text = $_REQUEST['textarea']; 
-                echo $_POST['textarea'];
-
-            if(sizeof($_REQUEST)>0 && isset($_REQUEST['boton']))
-            {
-                if($_REQUEST['boton']=='Editar')
-                    header('Location: Editar.php?fi='.$_REQUEST['nombreFichero']);
-
-            }
-            }
+                        unlink($rutaFichero);
+                        rename($rutaFicheroTemp,$rutaFichero);
+                        header('Location: ./LeeFichero.php?fi='.$_REQUEST['fi']);
+                    
+                    }
+                } 
+            }    
         ?>
            
         

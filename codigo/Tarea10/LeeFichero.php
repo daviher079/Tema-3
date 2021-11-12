@@ -27,46 +27,34 @@
                 <h1>DWES</h1>
                 <h2>Elige Fichero</h2>
             </div>
-
-        </div>  
-        <textarea name="textarea" rows="10" cols="50">Write something here</textarea>
-            <section id="botones">
-                <input type="submit" name="boton" value="Editar">
-
-        </div> 
+            <form action="EditaFichero.php" method="post">
+            <input type="hidden" name="fi" value="<?php echo $_REQUEST['fi'];?>">
             <?php
+
                 $nombreFichero= $_REQUEST['fi'];
 
                 $ruta="./FicherosTarea10/".$nombreFichero;
 
-                
-
                 if(comprobarFicheroExistente($nombreFichero)==false || empty($nombreFichero)==true)
                 {
-                    p("Todavia no ha creado un fichero. Para poder leer un fichero primero debe crearlo");
+                    p("Todavia no ha creado el fichero. Para poder leer un fichero primero debe crearlo");
                 }
                 else{
             ?>
 
+            <textarea name="textarea" rows="10" cols="50" readonly><?php
+                    if(!$fp=fopen($ruta, 'r'))
+                    {
+                        echo "No se ha podido abrir el fichero";
+                        exit;
+                    }
 
-                <textarea name="textarea" rows="10" cols="50" readonly>
-                    <?php
-                        if(!$fp=fopen($ruta, 'r'))
-                            {
-                                echo "No se ha podido abrir el fichero";
-                                exit;
-                            }
+                    $leo=fread($fp, filesize($ruta));
+                    $leo=str_replace("\n","<br>", $leo);
+                    echo $leo;
+                    fclose($fp)
+                ?></textarea>
 
-                            $leo=fread($fp, filesize($ruta));
-                            $leo=str_replace("\n","<br>", $leo);
-                            echo $leo;
-                            fclose($fp)
-                    ?>
-                </textarea>
-
-                <textarea name="textarea" rows="10" cols="50"></textarea>
-
-            
             <section id="botones">
                 <input type="submit" name="boton" value="Editar">
             <?php
@@ -75,8 +63,10 @@
                 <a href="./EligeFichero.php">Volver</a>
 
             </section>
-            </article>
-        
+
+            </form>
+
+        </div>  
 
         <?php
         //sizeof es igual que la funcion count
@@ -86,7 +76,7 @@
             if(sizeof($_REQUEST)>0 && isset($_REQUEST['boton']))
             {
                 if($_REQUEST['boton']=='Editar')
-                    header('Location: Editar.php?fi='.$_REQUEST['nombreFichero']);
+                    header('Location: EditaFichero.php?fi='.$_REQUEST['fi']);
 
             }
         ?>
