@@ -27,11 +27,11 @@
         </div> 
             <?php
                 $nombreFichero= $_REQUEST['fi'];
-<<<<<<< HEAD
+
                 $ruta="./FicherosTarea10/".$nombreFichero;
-=======
+
                 
->>>>>>> 8825aa7604fa0fc68fd5127a2090737a9e768c63
+
                 if(comprobarFicheroExistente($nombreFichero)==false || empty($nombreFichero)==true)
                 {
                     p("Todavia no ha creado un fichero. Para poder leer un fichero primero debe crearlo");
@@ -39,7 +39,7 @@
                 else{
             ?>
 
-<<<<<<< HEAD
+
                 <textarea name="textarea" rows="10" cols="50" readonly>
                     <?php
                         if(!$fp=fopen($ruta, 'r'))
@@ -54,9 +54,9 @@
                             fclose($fp)
                     ?>
                 </textarea>
-=======
+
                 <textarea name="textarea" rows="10" cols="50"></textarea>
->>>>>>> 8825aa7604fa0fc68fd5127a2090737a9e768c63
+
             
             <section id="botones">
                 <input type="submit" name="boton" value="Editar">
