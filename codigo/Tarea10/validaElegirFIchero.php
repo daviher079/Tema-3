@@ -22,7 +22,11 @@ require_once("../funcionesEj1-2.php");
     {
         $bandera=true;
         $rutaFichero="./directorioFicheros".$fichero;
+<<<<<<< HEAD
         if(file_exists($rutaFichero)==false)
+=======
+        if(file_exists($rutaFichero)==false )
+>>>>>>> 8825aa7604fa0fc68fd5127a2090737a9e768c63
         {
             $bandera=false;
         }

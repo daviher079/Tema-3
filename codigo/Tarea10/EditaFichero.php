@@ -25,6 +25,7 @@
                 <h2>Elige Fichero</h2>
             </div>
         </div> 
+<<<<<<< HEAD
         <form action="EditaFichero.php" method="post">
            <?php
             //require_once("./CodigoEditaFichero.php"); 
@@ -69,6 +70,13 @@
          
             <section id="botones">
                 <input type="submit" name="boton" value="Modificar">
+=======
+           
+            <textarea name="textarea" rows="10" cols="50"></textarea>
+         
+            <section id="botones">
+                <input type="submit" name="boton" value="Editar">
+>>>>>>> 8825aa7604fa0fc68fd5127a2090737a9e768c63
                 <a href="./EligeFichero.php">Volver</a>
             </section>
             </article>
@@ -76,6 +84,7 @@
 
         <?php
         //sizeof es igual que la funcion count
+<<<<<<< HEAD
 
             if(sizeof($_REQUEST)>0 && isset($_REQUEST['boton']))
             {
@@ -99,6 +108,12 @@
             {
                 $text = $_REQUEST['textarea']; 
                 echo $_POST['textarea'];
+=======
+            if(sizeof($_REQUEST)>0 && isset($_REQUEST['boton']))
+            {
+                if($_REQUEST['boton']=='Editar')
+                    header('Location: Editar.php?fi='.$_REQUEST['nombreFichero']);
+>>>>>>> 8825aa7604fa0fc68fd5127a2090737a9e768c63
             }
         ?>
            
