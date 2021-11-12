@@ -38,25 +38,25 @@
 
                 while ($linea=fgets($fNotas, filesize($rutaFichero))) {
                     $prueba=$linea."<br>";
-                    $arrayPrueba[$i]= $prueba;
+                    $l=explode(";", $prueba);
+                    for ($j=0; $j < sizeof($l) ; $j++) { 
+                        
+                        $arrayPrueba[$i][$j]= $l[$j];
+                        echo $arrayPrueba[$i][$j], " ";
+                    }
+                    
+                    $i++;
                 }
 
-                for ($i=0; $i < sizeof() ; $i++) { 
-                    # code...
-                }
+                
+
+                
+
+                
             ?>
         </form>
 
-        <table>
-            <thead>
-                <td>
-                    <tr>Notas</tr>
-                </td>
-            </thead>
-            <tbody>
-
-            </tbody>    
-        </table>
+        
 
         <?php
         //sizeof es igual que la funcion count
