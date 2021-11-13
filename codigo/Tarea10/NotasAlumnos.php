@@ -8,6 +8,45 @@
     <link rel="stylesheet" href="../../web-root/css/style.css"/>
     <link rel="stylesheet" href="../../web-root/css/styleTarea8.css"/>
     <title>Elige Fichero</title>
+
+    <style>
+        table
+        {
+            margin-left:50px;
+            border:2px #C823DE solid;
+            width:500px;
+        }
+
+        thead
+        {
+            border:2px #C823DE solid;
+        }
+
+        tr
+        {
+            border:2px #C823DE solid;
+            text-align:center;
+        }
+
+        td
+        {
+            padding:7px 15px;
+            border:2px #C823DE solid;
+            
+        }
+
+        a
+        {
+            text-decoration:none;
+            color:#d02b4d;
+        }
+
+        a:hover
+        {
+            color: rgba(208, 43, 77, 0.5);
+        }
+
+    </style>
 </head>
 <body>
     <header>
@@ -22,36 +61,58 @@
             <div class="title">
                 <h1>DWES</h1>
                 <h2>Elige Fichero</h2>
+                
             </div>
         </div>  
         <form action="NotasAlumnos.php" method="post" >
             <?php
+                require_once("../funcionesEj1-2.php");
                 $rutaFichero="./FicherosTarea10/notas.csv";
-                
-                if(!$fNotas=fopen($rutaFichero, 'r'))
+
+                if(file_exists($rutaFichero)==true)
                 {
-                    echo"Error no se ha podido abrir el fichero";
-                    exit;
-                }
-                $arrayPrueba=array();
-                $i=0;
-
-                while ($linea=fgets($fNotas, filesize($rutaFichero))) {
-                    $prueba=$linea."<br>";
-                    $l=explode(";", $prueba);
-                    for ($j=0; $j < sizeof($l) ; $j++) { 
-                        
-                        $arrayPrueba[$i][$j]= $l[$j];
-                        echo $arrayPrueba[$i][$j], " ";
+                    if(!$fNotas=fopen($rutaFichero, 'r'))
+                    {
+                        echo"Error no se ha podido abrir el fichero";
+                        exit;
                     }
+                    $arrayPrueba=array();
+                    $i=0;
+
+                    while ($linea=fgets($fNotas, filesize($rutaFichero))) {
+                        $separaLinea=$linea."<br>";
+                        $arrayLinea=explode(";", $separaLinea);
+                        for ($j=0; $j < sizeof($arrayLinea) ; $j++) { 
+                            
+                            $arrayPrueba[$i][$j]= $arrayLinea[$j];
+                            
+                        }
+                        
+                        $i++;
+                    }
+
+                    echo "<table>";
+                    echo "<thead>";
+                        echo "<tr><td>Alumnos</td><td style='border-right:none;'>Notas</td></tr>";
+                    echo "</thead>";
+                    echo "<tbody>";
+                    for ($i=0; $i <sizeof($arrayPrueba) ; $i++) { 
+                                echo "<tr>";
+                                    for ($j=0; $j < sizeof($arrayPrueba[$i]) ; $j++) { 
+                                        echo"<td>".$arrayPrueba[$i][$j]."</td>";
+                                    }
+                                    echo"<td><a href='./EditarNotas.php?nombre=".$arrayPrueba[$i][0]."'>Editar</a></td>";
+                                echo"</tr>";
+                            }
+                    echo "</tbody>";
+                    echo "<table>";
                     
-                    $i++;
+                    fclose($fNotas);
+                }else
+                {
+                    p("Error el fichero no existe.");
                 }
-
                 
-
-                
-
                 
             ?>
         </form>

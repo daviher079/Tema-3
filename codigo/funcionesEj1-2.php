@@ -24,6 +24,11 @@
     {
         echo "<label style='color:red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;'>".$cadena."</label>";
     }
+
+    function inputNumber($valor)
+    {
+        echo "<input type='number' id='".$valor."' name='".$valor."' value='".$valor."' min='0' max='10'>";
+    }
     
     function letraDni($numero)
     {
