@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Departamentos>
+  <Departamento>
+    <CodDepartamento>AAA</CodDepartamento>
+    <DescDepartamento>Descripción AAA</DescDepartamento>
+    <Profesores>
+      <Profesor id="1" old="5">Maria</Profesor>
+      <Profesor id="2" old="12">Santiago</Profesor>
+    </Profesores>
+  </Departamento>
+</Departamentos>
