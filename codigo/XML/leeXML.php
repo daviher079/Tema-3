@@ -13,7 +13,7 @@
             echo "Departamento: ".$departamento->children()[1]."<br><br>";
 
             foreach ($departamento->children()[2] as $profesor) {
-               var_dump($profesor); 
+               //var_dump($profesor); 
                echo $profesor->attributes()[1]. "<br>";
             }
 

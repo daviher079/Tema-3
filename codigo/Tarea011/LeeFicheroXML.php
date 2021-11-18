@@ -62,13 +62,46 @@
             </div>
         </div>  
         <form action="LeeFicheroXML.php" method="post" >
-            
+        <?php
+                $rutaFichero="./ficheros/alumnos.xml";
+
+                if(file_exists($rutaFichero)==true)
+                {
+                    $xml = simplexml_load_file($rutaFichero);
+                    
+                    echo "<table>";
+                    echo "<thead>";
+                        echo "<tr><td>Alumnos</td><td style='border-right:none;'>Notas</td></tr>";
+                    echo "</thead>";
+                    echo "<tbody>";    
+                    foreach ($xml as $alumno)
+                    {
+                        echo "<tr>";
+                        echo "<td> ".$alumno->children()[0]."</td>";
+                        echo "<td> ".$alumno->children()[1]."</td>";
+                        echo "<td> ".$alumno->children()[2]."</td>";
+                        echo "<td> ".$alumno->children()[3]."</td>";
+                        echo"<td><a href='./EditarNotas.php?nombre=".$alumno->children()[0]."'>Editar</a></td>";
+                       
+                        echo "</tr>";
+
+                    }
+                    echo "</tbody>";
+                    echo "<table>";
+
+                }else
+                {
+                    exit;
+                }
+                
+                
+            ?>
         </form>
 
         
 
         <?php
-        
+            
         ?>
            
         

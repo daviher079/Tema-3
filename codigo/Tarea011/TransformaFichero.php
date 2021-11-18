@@ -47,7 +47,6 @@
                             exit;
                         }
                         
-
                         $xml= new DOMDocument("1.0", "utf-8");
                         $xml->formatOutput =true;
                     

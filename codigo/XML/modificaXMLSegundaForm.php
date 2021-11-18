@@ -22,7 +22,7 @@
 
 
     // Reogemos el objeto de tipo dom del xml
-
+    //Modifica el objeto simpleXML a objeto DOM
     $dom = dom_import_simplexml($xml)->ownerDocument;
     $elemento = $dom->getElementsByTagName("Nombre");
 
@@ -39,6 +39,7 @@
             }while($aux->nodeName != "Jugadores");
 
             $aux->nodeValue = 1;
+            $aux->setAttribute("Modificado", "true");
         }
     }
 
