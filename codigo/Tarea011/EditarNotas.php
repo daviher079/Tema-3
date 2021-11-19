@@ -108,41 +108,29 @@
                                     $aux = $aux->nextSibling;
                                 }while($aux->nodeName != "nota1");
 
-                                $aux->nodeValue = 1;
-                                $aux->setAttribute("Modificado", "true");
+                                $aux->nodeValue = $_REQUEST['notaUno'];
+
+                                do
+                                {
+                                    $aux = $aux->nextSibling;
+                                }while($aux->nodeName != "nota2");
+
+                                $aux->nodeValue = $_REQUEST['notaDos'];
+
+                                do
+                                {
+                                    $aux = $aux->nextSibling;
+                                }while($aux->nodeName != "nota3");
+
+                                $aux->nodeValue = $_REQUEST['notaTres'];
                             }
                         }
 
-
-
-                        // Se guardan los cambios
-
                         $dom->save($rutaFichero);
                         
-                        $lineaModificada=$_REQUEST['nombre'].";".$_REQUEST['notaUno'].";".$_REQUEST['notaDos'].";".$_REQUEST['notaTres']." ";
                         
-                        while($linea2=fgets($fNotas, filesize($rutaFichero)))
-                        {
-                            $lineaAModificar=trim($linea2);
-                            $nombreAlumnoF=explode(";", $lineaAModificar);
-                            if($nombreAlumnoF[0]==$_REQUEST['nombre'])
-                                $linea2=$lineaModificada."\n";
 
-                            fwrite($fNotasTemp, $linea2, strlen($linea2));
-
-                        }
-
-
-                        
-                        
-                        fclose($fNotas);
-                        fclose($fNotasTemp);
-                        
-                        
-                        unlink($rutaFichero);
-                        rename($rutaFicheroTemp,$rutaFichero);
-
-                        header('Location: ./NotasAlumnos.php');
+                        header('Location: ./LeeFicheroXML.php');
                             
                     }else
                     {
