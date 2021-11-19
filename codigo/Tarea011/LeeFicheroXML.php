@@ -109,7 +109,7 @@
     </main>
     <footer>
         <p>Footer de David</p>
-        <a href="codigoTarea06.php?ficheroPHP=<?php
+        <a href="codigoTarea011.php?ficheroPHP=<?php
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
         ?>"><img src="../../../web-rootIndexPrincipal/img/gafas-de-sol.png" height="100px"></a>

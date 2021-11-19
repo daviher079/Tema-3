@@ -30,7 +30,7 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="../../web-rootIndexPrincipal/img/LogotipoDavidVicente.png"/>
+        <img class="logo" src="../../../web-rootIndexPrincipal/img/LogotipoDavidVicente.png"/>
         <h1>Elige Fichero</h1>
     </header>
     <main>
@@ -80,7 +80,7 @@
 
             <section id="botones" style="margin-top:35px;">
                 <input type="submit" name="boton" value="Guardar">
-                <a href="./NotasAlumnos.php">Volver</a>
+                <a href="./LeeFicheroXML.php">Volver</a>
             </section>
         </form>    
         
@@ -144,10 +144,10 @@
     </main>
     <footer>
         <p>Footer de David</p>
-        <a href="codigoTarea06.php?ficheroPHP=<?php
+        <a href="codigoTarea011.php?ficheroPHP=<?php
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
-        ?>"><img src="../../web-rootIndexPrincipal/img/gafas-de-sol.png" height="100px"></a>
+        ?>"><img src="../../../web-rootIndexPrincipal/img/gafas-de-sol.png" height="100px"></a>
     </footer>
 </body>
 </html>
