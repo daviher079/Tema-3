@@ -58,7 +58,6 @@
                             $separaLinea=trim($linea);
                             $arrayLinea=explode(";", $separaLinea);
                             
-                            
                             $alumno=$xml->createElement('alumno');
                             $ElementoRaiz->appendChild($alumno);
                             
