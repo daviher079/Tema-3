@@ -55,7 +55,7 @@ main
     display: flex;
     padding: 50px;
     text-align: center;
-    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 
@@ -63,6 +63,7 @@ main
 .boton
 {
     margin-right: 30px;
+    margin-bottom: 30px;
     padding: 30px;
     background-color: #d02b4d;
     border-radius: 15px;
@@ -93,3 +94,5 @@ footer p
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
 }
+
+
