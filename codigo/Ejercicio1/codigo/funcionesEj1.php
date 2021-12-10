@@ -12,7 +12,7 @@
 
     function p($cadena)
     {
-        echo "<p style=' font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 16px'>",$cadena,"</p>";
+        echo "<p>".$cadena."</p>";
     }
 
     function self()
@@ -32,15 +32,18 @@
     
     function letraDni($numero)
     {
+        $r='';
         $letra=array('T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E');
         $resultado=$numero%23;
-         for ($i=0; $i <count($letra) ; $i++) { 
+        
+         for ($i=0; $i <sizeof($letra); $i++) { 
             
              if($resultado==$i)
              {
-                 return $letra[$i];
+                $r= $letra[$i];
              }
         }
+        return $r;
     }
 
     function generaNumeros(&$array, $min, $max,$nGenerados, $repeticion)
