@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
     <link rel="stylesheet" href="../web-root/css/style2.css"/>
-    <title>Ejercicios 1 y 2</title>
+    <title>Ejercicio 1</title>
 </head>
 <body>
     <header>
         <img class="logo" src="../web-root/img/LogotipoDavid.jpg"/>
-        <h1>Ejercicios 1 y 2</h1>
+        <h1>Ejercicio 1</h1>
     </header>
     <main>
         <article>

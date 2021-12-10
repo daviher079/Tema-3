@@ -5,12 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
-    <link rel="stylesheet" href="../web-root/css/style.css"/>
+    <link rel="stylesheet" href="../web-root/css/style2.css"/>
     <title>Tarea 06</title>
+    <style>
+        
+table
+{
+    width:750px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 400;
+    
+    border: 2px solid #d02b4d;
+    border-radius: 10px;
+}
+
+th
+{
+    border: 2px solid #d02b4d;
+    text-align: left;
+    font-size: 1.1em;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: 400;
+    color: #d02b4d;
+    
+}
+
+td
+{
+    font-size: 0.9em;    
+}
+    </style>
 </head>
 <body>
     <header>
-        <img class="logo" src="../../web-rootPrincipal/imgPrincipal/LogotipoDavid.jpg"/>
+        <img class="logo" src="../web-root/img/LogotipoDavid.jpg"/>
         <h1>Tarea 06</h1>
     </header>
     <main>
