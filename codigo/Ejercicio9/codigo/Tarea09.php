@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
-    <link rel="stylesheet" href="../web-root/css/style.css"/>
-    <link rel="stylesheet" href="../web-root/css/styleTarea8.css"/>
+    <link rel="stylesheet" href="../web-root/css/style2.css"/>
     <title>Tarea 09</title>
 </head>
 <body>
     <header>
-        <img class="logo" src="../../web-rootIndexPrincipal/img/LogotipoDavidVicente.png"/>
+        <img class="logo" src="../web-root/img/LogotipoDavid.jpg"/>
         <h1>Tarea 09</h1>
     </header>
     <main>
@@ -22,7 +21,7 @@
                 <h2>Formulario de registro</h2>
             </div>
             <?php 
-                require_once("./funcionesEj1-2.php");
+                require_once("./Funciones.php");
                 require_once("./validarTarea09.php");
 
                 if(validarFormulario()==true)
@@ -48,8 +47,8 @@
             <form action="<?php echo self(); ?>" method="post" name="formulario" enctype="multipart/form-data">
                 <article>
                     <section>
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" id="nombre" size="30" placeholder="Nombre" value="<?php
+                        <label class="nochk" for="nombre">Nombre:</label>
+                        <input class="innochk" type="text" name="nombre" id="nombre" size="30" placeholder="Nombre" value="<?php
                             recordargenerico("nombre"); 
                         ?>">
                         <?php
@@ -65,8 +64,8 @@
                     </section>
 
                     <section>
-                        <label for="apellidos">Apellidos:</label>
-                        <input type="text" name="apellidos" id="apellidos" size="30" placeholder="Apellido" value="<?php
+                        <label class="nochk" for="apellidos">Apellidos:</label>
+                        <input class="innochk" type="text" name="apellidos" id="apellidos" size="30" placeholder="Apellido" value="<?php
                             recordargenerico("apellidos");
                         ?>">
                         <?php
@@ -82,8 +81,8 @@
                     </section>
 
                     <section>
-                        <label for="fecha">Fecha:</label>
-                        <input type="text" name="fecha" id="fecha" size="30" placeholder="Fecha"
+                        <label class="nochk" for="fecha">Fecha:</label>
+                        <input class="innochk" type="text" name="fecha" id="fecha" size="30" placeholder="Fecha"
                         value="<?php
                             recordarGenerico("fecha");
                         ?>">
@@ -110,8 +109,8 @@
                     </section>
 
                     <section>
-                        <label for="dni">DNI:</label>
-                        <input type="text" name="dni" id="dni" size="30" placeholder="DNI"
+                        <label class="nochk" for="dni">DNI:</label>
+                        <input class="innochk" type="text" name="dni" id="dni" size="30" placeholder="DNI"
                         value="<?php
                             recordarGenerico("dni");
                         ?>">
@@ -136,8 +135,8 @@
                     </section>
 
                     <section>
-                        <label for="correo">Correo Electronico:</label>
-                        <input type="text" name="correo" id="correo" size="30" placeholder="Correo Electronico"
+                        <label class="nochk" for="correo">Correo Electronico:</label>
+                        <input class="innochk" type="text" name="correo" id="correo" size="30" placeholder="Correo Electronico"
                         value="<?php
                             recordarGenerico("correo");
                         ?>">
@@ -181,10 +180,11 @@
     </main>
     <footer>
         <p>Footer de David</p>
-        <a href="codigoTarea06.php?ficheroPHP=<?php
+        <a href="verCodigo.php?ficheroPHP=<?php
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
-        ?>"><img src="../../web-rootIndexPrincipal/img/gafas-de-sol.png" height="100px"></a>
+        ?>"><img src="../web-root/img/gafas-de-sol.png" height="100px"></a>
+        <a href="../../../index.html"><img src="../web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>

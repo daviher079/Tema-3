@@ -1,5 +1,5 @@
 <?php
-    require_once("./funcionesEj1-2.php");
+    require_once("./Funciones.php");
 
     function validarFormulario()
     {

@@ -1,0 +1,121 @@
+header
+{
+    background-color: white;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo
+{
+    left: 0;
+    height: 90px;
+}
+
+h1
+{
+    padding: 30px;
+    color: #d02b4d;
+    
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 45px;
+}
+
+main
+{
+    
+    padding: 50px;
+    
+}
+
+
+h2
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 32px;
+    margin-bottom: 50px;
+    color: #d02b4d;
+}
+
+p
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    color: #d02b4d;
+}  
+
+footer
+{
+    position: fixed;
+    bottom: 0;
+    background-color: #d02b4d;
+}
+
+footer p
+{
+    padding: 5px;
+    color: white;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+}
+
+section
+{
+    margin-bottom: 20px;
+}
+
+label
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #d02b4d;
+}
+
+form 
+{    
+    width:750px;  
+}
+
+.nochk
+{
+    width:200px;
+    float:left;
+    padding: 10px;
+}
+        
+.innochk
+{
+    border-color: #d02b4d;
+    color: black;
+    border-style: solid;
+    padding: 7px;
+    border-radius: 15px;
+}
+
+input[type='submit'], input[type='reset']
+{
+    border-color: #d02b4d;
+    color: black;
+    border-style: solid;
+    padding: 7px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+
+#botones
+{
+    margin-bottom: 150px;
+    background-color: none;
+    cursor: pointer;
+}
+
+#fichero
+{
+    border-style: none;
+
+}
+
+

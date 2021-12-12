@@ -1,5 +1,5 @@
 <?php
-    require_once("./funcionesEj1-2.php");
+    require_once("./Funciones.php");
     //Definicion de las constantes que contienen los patrones que comprueban si la cadena es correcta
     define("PATRONNOMBRE", '/^[A-Z]{1}[a-z]{2}/i');
     define("PATRONAPELLIDOS", '/[A-Z]{3}\s[A-Z]{3}/i');

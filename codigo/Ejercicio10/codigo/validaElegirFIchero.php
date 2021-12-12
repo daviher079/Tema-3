@@ -1,5 +1,5 @@
 <?php
-require_once("../funcionesEj1-2.php");
+require_once("./Funciones.php");
     function recordarGenerico($var){
         if(!empty($_REQUEST[$var])&& isset($_REQUEST['enviado']))
         {
@@ -22,7 +22,7 @@ require_once("../funcionesEj1-2.php");
     {
 
         $bandera=true;
-        $rutaFichero="./FicherosTarea10/".$fichero;
+        $rutaFichero="../FicherosTarea10/".$fichero;
 
         if(file_exists($rutaFichero)==false)
         {

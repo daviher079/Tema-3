@@ -36,7 +36,7 @@
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
         ?>"><img src="../web-root/img/gafas-de-sol.png" height="100px"></a>
-        <a href="./Ejercicio4.php?precio=6.33&pago=10"><img src="../web-root/img/volver.png" height="20px"></a>
+        <a href="./Tarea09.php"><img src="../web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>
