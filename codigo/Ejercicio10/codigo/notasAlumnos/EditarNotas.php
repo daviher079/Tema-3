@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
-    <link rel="stylesheet" href="../web-root/css/style2.css"/>
+    <link rel="stylesheet" href="../../web-root/css/resetCSS.css"/>
+    <link rel="stylesheet" href="../../web-root/css/style2.css"/>
     <title>Edita Notas</title>
 
     <style>
@@ -15,7 +15,7 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="../web-root/img/LogotipoDavid.jpg"/>
+        <img class="logo" src="../../web-root/img/LogotipoDavid.jpg"/>
         <h1>Edita Notas</h1>
     </header>
     <main>
@@ -30,9 +30,9 @@
             <input type="hidden" name="nombre" value="<?php echo $_REQUEST['nombre'];?>">
             <?php
             
-            require_once("./validaElegirFIchero.php");
+            //require_once("./validaElegirFIchero.php");
             $nombreAlumno = $_REQUEST['nombre'];
-            $rutaFichero="../FicherosTarea10/notas.csv";
+            $rutaFichero="../../FicherosTarea10/notas.csv";
 
             if(file_exists($rutaFichero)==true)
             {
@@ -77,7 +77,7 @@
 
             <section id="botones" style="margin-top:35px;">
                 <input type="submit" name="boton" value="Guardar">
-                <a class="miA" href="./NotasAlumnos.php">Volver</a>
+                <a class="miA" href="./NotasAlumnos.php"><img src="../../web-root/img/volver.png" height="20px"></a>
             </section>
         </form>    
         
@@ -88,7 +88,7 @@
                 {
                     if(file_exists($rutaFichero)==true)
                     {
-                        $rutaFicheroTemp="./FicherosTarea10/temp.csv";
+                        $rutaFicheroTemp="../FicherosTarea10/temp.csv";
 
                         if(!$fNotas=fopen($rutaFichero, 'r'))
                         {
@@ -141,11 +141,11 @@
     </main>
     <footer>
         <p>Footer de David</p>
-        <a href="verCodigo.php?ficheroPHP=<?php
+        <a href="./verCodigo.php?ficheroPHP=<?php
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
-        ?>"><img src="../web-root/img/gafas-de-sol.png" height="100px"></a>
-        <a href="../index.html"><img src="../web-root/img/volver.png" height="20px"></a>
+        ?>"><img src="../../web-root/img/gafas-de-sol.png" height="100px"></a>
+        <a href="../../index.html"><img src="../../web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>

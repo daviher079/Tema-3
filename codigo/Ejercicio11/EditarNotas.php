@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../web-root/css/resetCSS.css"/>
-    <link rel="stylesheet" href="../../web-root/css/style.css"/>
-    <link rel="stylesheet" href="../../web-root/css/styleTarea8.css"/>
+    <link rel="stylesheet" href="./web-root/css/resetCSS.css"/>
+    <link rel="stylesheet" href="./web-root/css/style2.css"/>
     <title>Elige Fichero</title>
 
     <style>
@@ -30,7 +29,7 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="../../../web-rootIndexPrincipal/img/LogotipoDavidVicente.png"/>
+    <img class="logo" src="./web-root/img/LogotipoDavid.jpg"/>
         <h1>Elige Fichero</h1>
     </header>
     <main>
@@ -39,11 +38,7 @@
             <div class="title">
                 <h1>DWES</h1>
                 <h2>Editar Notas</h2>
-                
-            </div>
-        </div> 
-         
-        <form action="EditarNotas.php" method="post">
+                <form action="EditarNotas.php" method="post">
         <input type="hidden" name="nombre" value="<?php echo $_REQUEST['nombre'];?>">
         <?php
             
@@ -80,9 +75,13 @@
 
             <section id="botones" style="margin-top:35px;">
                 <input type="submit" name="boton" value="Guardar">
-                <a href="./LeeFicheroXML.php">Volver</a>
+                <a href="./LeeFicheroXML.php"><img src="./web-root/img/volver.png" height="20px"></a>
             </section>
         </form>    
+            </div>
+        </div> 
+         
+       
         
         <?php
             if(sizeof($_REQUEST)>0 && isset($_REQUEST['boton']))
@@ -144,10 +143,11 @@
     </main>
     <footer>
         <p>Footer de David</p>
-        <a href="codigoTarea011.php?ficheroPHP=<?php
+        <a href="./verCodigo.php?ficheroPHP=<?php
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
-        ?>"><img src="../../../web-rootIndexPrincipal/img/gafas-de-sol.png" height="100px"></a>
+        ?>"><img src="../../web-root/img/gafas-de-sol.png" height="100px"></a>
+        <a href="./LeeFicheroXML.php"><img src="./web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>

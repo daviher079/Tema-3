@@ -5,33 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../web-root/css/resetCSS.css"/>
-    <link rel="stylesheet" href="../../web-root/css/style.css"/>
-    <link rel="stylesheet" href="../../web-root/css/styleTarea8.css"/>
+    <link rel="stylesheet" href="../../web-root/css/style2.css"/>
     <title>Elige Fichero</title>
 </head>
 <body>
     <header>
-        <img class="logo" src="../../web-rootIndexPrincipal/img/LogotipoDavidVicente.png"/>
+        <img class="logo" src="../../web-root/img/LogotipoDavid.jpg"/>
         <h1>Elige Fichero</h1>
     </header>
     <main>
         <?php
             require_once("./validaElegirFIchero.php");
-            require_once("../funcionesEj1-2.php");
+            require_once("../Funciones.php");
         ?>
         <div class="content">
             <div class="title">
                 <h1>DWES</h1>
-                <h2>Elige Fichero</h2>
+                <h2>Editar Fichero</h2>
             </div>
-        </div> 
 
-        <form action="EditaFichero.php" method="post">
+            <form action="EditaFichero.php" method="post">
             <input type="hidden" name="fi" value="<?php echo $_REQUEST['fi'];?>">
            <?php
             
-            $rutaFichero="./FicherosTarea10/".$_REQUEST['fi'];
-            $rutaFicheroTemp="./FicherosTarea10/temp.txt";
+            $rutaFichero="../../FicherosTarea10/".$_REQUEST['fi'];
+            $rutaFicheroTemp="../../FicherosTarea10/temp.txt";
 
                 if(file_exists($rutaFichero)==true)
                 {
@@ -66,10 +64,13 @@
            <section id="botones">
                <input type="submit" name="boton" value="Guardar">
                
-               <a href="./EligeFichero.php">Volver</a>
+               <a href="./EligeFichero.php"><img src="../../web-root/img/volver.png" height="20px"></a>
             </section>
         
         </form>    
+        </div> 
+
+        
         
 
         <?php
@@ -114,10 +115,11 @@
     </main>
     <footer>
         <p>Footer de David</p>
-        <a href="codigoTarea06.php?ficheroPHP=<?php
+        <a href="./verCodigo.php?ficheroPHP=<?php
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
-        ?>"><img src="../../web-rootIndexPrincipal/img/gafas-de-sol.png" height="100px"></a>
+        ?>"><img src="../../web-root/img/gafas-de-sol.png" height="100px"></a>
+        <a href="../../index.html"><img src="../../web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>

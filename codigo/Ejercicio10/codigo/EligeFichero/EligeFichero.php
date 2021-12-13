@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../web-root/css/resetCSS.css"/>
-    <link rel="stylesheet" href="../../web-root/css/style.css"/>
-    <link rel="stylesheet" href="../../web-root/css/styleTarea8.css"/>
+    <link rel="stylesheet" href="../../web-root/css/style2.css"/>
     <title>Elige Fichero</title>
 </head>
 <body>
     <header>
-        <img class="logo" src="../../web-rootIndexPrincipal/img/LogotipoDavidVicente.png"/>
+        <img class="logo" src="../../web-root/img/LogotipoDavid.jpg"/>
         <h1>Elige Fichero</h1>
     </header>
     <main>
@@ -23,8 +22,7 @@
                 <h1>DWES</h1>
                 <h2>Elige Fichero</h2>
             </div>
-        </div>  
-        <form action="EligeFichero.php" method="post" >
+            <form action="EligeFichero.php" method="post" >
             <article>
             <section>
                 <label for="nombreFichero">Nombre fichero:</label>
@@ -39,6 +37,8 @@
             </section>
             </article>
         </form>
+        </div>  
+        
 
         <?php
         //sizeof es igual que la funcion count
@@ -59,10 +59,11 @@
     </main>
     <footer>
         <p>Footer de David</p>
-        <a href="codigoTarea06.php?ficheroPHP=<?php
+        <a href="./verCodigo.php?ficheroPHP=<?php
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
-        ?>"><img src="../../web-rootIndexPrincipal/img/gafas-de-sol.png" height="100px"></a>
+        ?>"><img src="../../web-root/img/gafas-de-sol.png" height="100px"></a>
+        <a href="../../index.html"><img src="../../web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>
