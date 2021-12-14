@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
-    <link rel="stylesheet" href="../web-root/css/style.css"/>
-    <title>Tarea 06</title>
+    <link rel="stylesheet" href="web-root/css/resetCSS.css"/>
+    <link rel="stylesheet" href="web-root/css/style.css"/>
+    <title>Index Ejemplos</title>
 </head>
 <body>
     <header>
-        <img class="logo" src="../../web-rootPrincipal/imgPrincipal/LogotipoDavid.jpg"/>
-        <h1>Tarea 06</h1>
+        <img class="logo" src="./web-root/img/LogotipoDavid.jpg"/>
+        <h1>Index Ejemplos</h1>
     </header>
+    
     <main>
+
 
         <div class="content">
             <div class="title">
@@ -79,10 +81,11 @@
     </main>
     <footer>
         <p>Footer de David</p>
-        <a href="codigoTarea06.php?ficheroPHP=<?php
+        <a href="./verCodigo.php?ficheroPHP=<?php
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
-        ?>"><img src="../web-root/img/gafas-de-sol.png" height="100px"></a>
+        ?>"><img src="./web-root/img/gafas-de-sol.png" height="100px"></a>
+        <a href="./LeeFicheroXML.php"><img src="./web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>

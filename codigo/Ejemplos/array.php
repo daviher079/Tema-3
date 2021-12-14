@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="web-root/css/resetCSS.css"/>
+    <link rel="stylesheet" href="web-root/css/style.css"/>
+    <title>Index Ejemplos</title>
 </head>
 <body>
+    <header>
+        <img class="logo" src="./web-root/img/LogotipoDavid.jpg"/>
+        <h1>Index Ejemplos</h1>
+    </header>
     
     <main>
+    <div>
         <?php
             $arrayvacio=array();
             var_dump($arrayvacio);
@@ -23,9 +30,13 @@
                 print_r ($notas);
             echo "</pre>";    
 
+            echo"<br/>";
+
+            echo "<p>";
             for ($i=0; $i < count($notas) ; $i++) { 
-                echo"<p>". $notas[$i]."</p>";
+                echo $notas[$i]." ";
             }
+            echo "</p>";
 
             $notas[10]="MH";
 
@@ -35,31 +46,37 @@
                 print_r ($notas);
             echo "</pre>";
 
-            echo count($notas);
+            echo"<br/>";
+
+            echo "<p>".count($notas)."</p>";
+            echo"<br/>";
 
             //Da error
-            for ($i=0; $i < count($notas) ; $i++) { 
+            /*for ($i=0; $i < sizeof($notas); $i++) { 
                 echo"<p>". $notas[$i]."</p>";
-            }
-
+            }*/
+            echo"<p>";
             foreach($notas as $nota)
             {
-                echo"<p>".$nota."</p>";
+                echo $nota. " ";
             }
+            echo "</p>";
+            echo"<br/>";
 
             if(isset($notas[6]))
-                echo "existe";
+                echo "<p>existe</p>";
             else
-                echo"No existe";    
+                echo"<p>No existe</p>";    
 
-            
+                echo"<br/>";
                 unset($notas[1]);
+                echo"<p>";
 
                 foreach($notas as $nota)
                 {
-                    echo"<p>".$nota."</p>";
+                    echo $nota." ";
                 }    
-            
+                echo "</p>";
                 
                 $notasArrayAsociativo=array(
                     'David'=>8,
@@ -69,7 +86,7 @@
                     'Aarón'=>7,
                     'Hector'=>4
                 );
-
+                echo"<br/>";
                 echo "<pre>";
                     print_r($notasArrayAsociativo);
                 echo"</pre>";
@@ -78,7 +95,7 @@
                 {
                     $notasArrayAsociativo[$key]+=1;
                 }
-
+                echo"<br/>";
                 echo "<pre>";
                     print_r($notasArrayAsociativo);
                 echo"</pre>";
@@ -93,6 +110,7 @@
                         $tabla[$i][$j]=$i*$j;
                     }                  
                 }
+                echo"<br/>";
 
                 echo "<pre>";
                     print_r($tabla);
@@ -114,19 +132,26 @@
                 foreach ($ciclos as $key => $value) {
                     
                     foreach ($ciclos[$key] as $clave => $valor2) {
-                        echo $valor2,"<br/>";
+                        echo "<p>".$valor2."</p>";
                     }
                 }
             echo "<h1>Funciones para recordar</h1>";
+                echo "<p>";
                 print_r (current($ciclos));
-                echo "<br>";
+                echo "</p>";
+                echo "<br/>";
+                echo "<p>";
                 print_r (next($ciclos));
+                echo "</p>";
                 echo "<br>";
-                print_r (current($ciclos));
+                echo "<p>";
+                print_r (next($ciclos));
+                echo "</p>";
                 echo "<br>";
                 echo "<br>";
 
-            while($ciclo = each($ciclos))
+                //LA FUNCION EACH ESTA OBSOLETA
+            /*while($ciclo = each($ciclos))
             {
                 echo "<pre>";
                 echo "El ciclo es ", $ciclo['key'], " Y la asignatura es ";
@@ -140,14 +165,23 @@
                 echo "<br>";
                 reset($ciclos);    
 
-                while($ciclo = each($ciclos))
-                {
-                    echo "<pre>";
-                    echo "El ciclo es ", $ciclo['key'], " Y la asignatura es ";
-                    print_r($ciclo['value']);
-                    echo "</pre>";
-                }      
+            while($ciclo = each($ciclos))
+            {
+                echo "<pre>";
+                echo "El ciclo es ", $ciclo['key'], " Y la asignatura es ";
+                print_r($ciclo['value']);
+                echo "</pre>";
+            }   */   
         ?>
+    </div>
     </main>
+    <footer>
+        <p>Footer de David</p>
+        <a href="./verCodigo.php?ficheroPHP=<?php
+            $pagina=basename($_SERVER['SCRIPT_FILENAME']);
+            echo $pagina;
+        ?>"><img src="./web-root/img/gafas-de-sol.png" height="100px"></a>
+        <a href="./LeeFicheroXML.php"><img src="./web-root/img/volver.png" height="20px"></a>
+    </footer>
 </body>
 </html>

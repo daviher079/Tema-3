@@ -8,24 +8,7 @@
     <link rel="stylesheet" href="./web-root/css/style2.css"/>
     <title>Elige Fichero</title>
 
-    <style>
-        a
-        {
-            text-decoration:none;
-            color:#d02b4d;
-        }
 
-        a:hover
-        {
-            color: rgba(208, 43, 77, 0.5);
-        }
-        label
-        {
-            margin-right:20px;
-        }
-
-    </style>
-    
 </head>
 <body>
     <header>
@@ -113,7 +96,7 @@
                                 {
                                     $aux = $aux->nextSibling;
                                 }while($aux->nodeName != "nota2");
-
+                                
                                 $aux->nodeValue = $_REQUEST['notaDos'];
 
                                 do
@@ -126,7 +109,6 @@
                         }
 
                         $dom->save($rutaFichero);
-                        
                         
 
                         header('Location: ./LeeFicheroXML.php');
