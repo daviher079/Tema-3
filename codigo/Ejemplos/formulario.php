@@ -6,6 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="web-root/css/resetCSS.css"/>
     <link rel="stylesheet" href="web-root/css/style.css"/>
+    <style>
+        h2
+        {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #d02b4d;
+            font-size: 1.4em;
+            margin-bottom: 25px;
+        }
+
+        section
+        {
+            margin-bottom: 20px;
+        }
+
+        label
+        {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #d02b4d;
+        }
+
+        form 
+        {    
+            width:750px;  
+        }
+
+        .nochk
+        {
+            width:200px;
+            float:left;
+            padding: 10px;
+        }
+                
+        .innochk
+        {
+            border-color: #d02b4d;
+            color: black;
+            border-style: solid;
+            padding: 7px;
+            border-radius: 15px;
+        }
+
+        input[type='submit'], input[type='reset']
+        {
+            border-color: #d02b4d;
+            color: black;
+            border-style: solid;
+            padding: 7px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+    </style>
     <title>Index Ejemplos</title>
 </head>
 <body>
@@ -26,29 +78,31 @@
             <form action="./procesa.php" method="post" name="formulario">
                 <!-- Input de Texto -->
 
-                <p>
+                <section>
+                    <label class="nochk" for="nombre">Nombre y Apellidos:</label>
+                    <input class="innochk" type="text" name="nombre" id="idNombre" size="40">
+                </section>
 
-                    <label for="nombre">Nombre y Apellidos:</label>
-
-                    <input type="text" name="nombre" id="idNombre" size="40">
-
-                    <label for="pass">Password:</label>
-
-                    <input type="password" name="pass" id="idPass" size="40">
-                    <br>
-                    <label>Genero</label>
-
+                <section>
+                    <label class="nochk" for="pass">Password:</label>
+                    <input class="innochk" type="password" name="pass" id="idPass" size="40">
+                </section>    
+                    
+                <section>
+                    <label class="nochk">Genero</label>
                     <input type="radio" name="genero" id="masculino" value="masculino"><label for="masculino">Masculino</label>
                     <input type="radio" name="genero" id="femenino" value="femenino"><label for="femenino">Femenino</label>
-                    <br>
-                    <label>Ciclo</label>
-
+                </section>    
+                <section>
+                    <label class="nochk">Ciclo</label>
                     <select name="ciclo" id="ciclo">    
                         <option value="dam">DAM</option>
                         <option value="daw">DAW</option>
-                    </select>    
-                    <br>
-                    <label>Aficiones</label>
+                    </select> 
+                </section>    
+                
+                <section>
+                    <label class="nochk">Aficiones</label>
                     <label for="futbol">Futbol</label>
                     <input type="checkbox" name="aficiones[]" id="futbol" value="futbol">
                     <label for="bar">Bar</label>
@@ -59,9 +113,11 @@
                     <input type="checkbox" name="aficiones[]" id="padel" value="padel">
                     <label for="dormir">dormir</label>
                     <input type="checkbox" name="aficiones[]" id="dormir" value="dormir">
+                </section>
+                    
+                    
                         
 
-                </p>
 
                 <!-- Input de tipo Submit -->
 
