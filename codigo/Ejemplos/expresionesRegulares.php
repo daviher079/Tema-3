@@ -145,7 +145,9 @@
                 $patron='/[a-z][0-9]+@[a-z]+\.[a-z]{2,}/';
                 echo preg_match($patron, "da079@v.com");
 
-                
+                echo "<br>Comprobar nombre y apellidos<br>";
+                define("PATRONNOMBRECOMPLETO", '/[A-Z]{1}[a-z]{2,}\s[A-Z]{1}[a-z]{2,}\s[A-Z]{1}[a-z]{2,}/');
+                echo preg_match(PATRONNOMBRECOMPLETO, "Julian Lopez Lopez");
 
                 
             ?>
@@ -159,7 +161,7 @@
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
         ?>"><img src="./web-root/img/gafas-de-sol.png" height="100px"></a>
-        <a href="./LeeFicheroXML.php"><img src="./web-root/img/volver.png" height="20px"></a>
+        <a href="./index.html"><img src="./web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>
