@@ -148,7 +148,11 @@
                 echo "<br>Comprobar nombre y apellidos<br>";
                 define("PATRONNOMBRECOMPLETO", '/[A-Z]{1}[a-z]{2,}\s[A-Z]{1}[a-z]{2,}\s[A-Z]{1}[a-z]{2,}/');
                 echo preg_match(PATRONNOMBRECOMPLETO, "Julian Lopez Lopez");
-
+                
+                echo "<br>Comprobar contraseña<br>";
+                define("PATRONPASS", '/^[A-Za-z0-9]{5,}([A-Z]{1}[a-z]{1}[0-9]{1})$/');
+                echo preg_match(PATRONPASS, "abcdfsddeAz0");
+                define("PATRONCONTRASEÑA", '/[a-zA-Z0-9]{5}[A-Z]{1}[a-z]{1}[0-9]{1}/');
                 
             ?>
         </div>
